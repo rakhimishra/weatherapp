@@ -1,0 +1,21 @@
+li{
+    background-color:rgb(255, 255, 255);
+    list-style-type:none;
+    
+}
+li:nth-child(2n) {background-color:rgb(241, 240, 240)}
+
+.Cards:nth-child(2n) {background-color:rgb(241, 240, 240)!important}
+
+/* .suggestions li {
+    overflow: hidden;
+    height: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  /*and make the suggestion reappear when user focus on search field*/
+  /* input[type="search"]:focus + .suggestions li {
+    height: 63px;
+  } */ 
