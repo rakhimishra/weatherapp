@@ -28,17 +28,7 @@ class App extends React.Component {
       error:false,
     
     }
-    // this.getWeather();
-    this.weatherIcon = {
-      thunderstorm : "wi-thunderstorm",
-      Drizzle : "wi-sleet",
-      Rain : "wi-storm-showers",
-      Snow : "wi-snow",
-      Atmosphere : "wi-fog",
-      Clear : "wi-day-sunny",
-      Clouds: "wi-cloud-fog"
-
-    };
+    
   }
 
   calCelsius(temp){
@@ -46,43 +36,7 @@ class App extends React.Component {
     return cell
   }
 
-  get_WeatherIcon(icons,rangeId){
-    switch(true){
-      case rangeId >=200 && rangeId <= 232:
-      this.setState({icon:icons.thunderstorm})
-      break
 
-      case rangeId >=300 && rangeId <= 321:
-      this.setState({icon:icons.Drizzle});
-      break
-
-      case rangeId >=500 && rangeId <= 531:
-      this.setState({icon:icons.Rain});
-      break
-
-      case rangeId >=600 && rangeId <= 622:
-      this.setState({icon:icons.Snow});
-      break
-      
-      case rangeId >=701 && rangeId <= 731:
-      this.setState({icon:icons.Atmosphere});
-      break
-
-      case rangeId === 800:
-      this.setState({icon:icons.Clear});
-      break
-
-      case rangeId >=801 && rangeId <= 804:
-      this.setState({icon:icons.Clouds});
-      break
-
-      default:
-        this.setState({icon:icons.Clouds});
-
-    }
-    
-  }
-   
   getWeather = async (e) => {
     e.preventDefault();
     const city = e.target.elements.city.value
@@ -91,7 +45,7 @@ class App extends React.Component {
     const response = await api_call.json();
     console.log(response)
 
-    console.log(this.get_WeatherIcon(this.weatherIcon, response.list[1].weather[0].id));
+
     for(let i=0; i<40; i+=8){
       let temp = this.state.celsius;
       let tempMax=this.state.temp_max;
@@ -110,7 +64,8 @@ class App extends React.Component {
       date.push(response.list[i].dt_txt);
       Description.push(response.list[i].weather[0].description);
       Country.push(response.city.country)
-      // Icon.push(this.get_WeatherIcon(this.weatherIcon, response.list[1].weather[0].id));
+      Icon.push(response.list[i].weather[0].icon)
+      
       
     	this.setState({
         celsius:temp,
@@ -121,18 +76,14 @@ class App extends React.Component {
         icon:Icon,
         Dates:date,
         country:Country,
-        // weatherIcon:this.weatherIcon.thunderstorm
-        
 
       });
  
     }
     this.setState({ 
       city: `${response.city.name}`,
-      weatherIcon:this.weatherIcon.thunderstorm
-
     });
-    this.get_WeatherIcon(this.weatherIcon, response.list[1].weather[0].id);
+
     }
     else{
       this.setState({error:true});
@@ -155,8 +106,6 @@ class App extends React.Component {
         "Vasai-Vihar","Allahabad","Meerut","Thiruvananthpuram","Srinagar","Asansol",
       "Rajkot","Faridabad","Noida","Guwahati","Jalandhar","Siliguri"]}
   />
-      {/* <Form loadweather= {this.getWeather}
-      error={this.state.error}/> */}
 
       <Cards 
       city = {this.state.city} 
@@ -173,15 +122,4 @@ class App extends React.Component {
     )
   }
 }
-// function App() {
-//   return (
-    // <div className="App">
-    //   <Navbars/>
-    //   <Cards />
-    //   <Weather />
-    //   <h1>Weather app</h1>
-    // </div>
-//   );
-// }
-
 export default App; 

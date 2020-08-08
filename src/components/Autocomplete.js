@@ -136,16 +136,6 @@ class Autocomplete extends React.Component {
                 </div>
             </div>
             </form>
-    
-      {/* <React.Fragment>
-        <input
-          type="search"
-          onChange={onChange}
-          onKeyDown={onKeyDown}
-          value={userInput}
-        />
-        {suggestionsListComponent}
-      </React.Fragment> */}
       </div>
     );
 
