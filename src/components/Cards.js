@@ -8,21 +8,22 @@ const Cards = (props)=> {
   console.log(props.icon)
     return (
       
-      <CardDeck className="cards mt-5 mx-2">
+      <CardDeck style={{backgroundColor:""}} className="cards mt-5 mx-2">
          {props.city?data.map(el =>
-       <Card className = " cards bg-warning">
-       <Card.Body>
-      <Card.Title className="fs-4 display-4">{props.city} , {props.country[el]}</Card.Title>
-        <h3>{props.Dates[el]}</h3>
+       <Card className = " cards">
+       <Card.Body style={{ backgroundColor:"" ,
+        boxShadow:"5px 10px 5px", borderRadius:"2px"}}>
+      <Card.Title className="fs-4 ">{props.city} , {props.country[el]}</Card.Title>
+        <h6>{props.Dates[el]}</h6>
         <Card.Text>
          <i className={`wi ${props.weatherIcon} display-1`}></i>
        
         </Card.Text>
-        {props.celsius ? <h1 className="py-2"> {props.celsius[el]}&deg;</h1>:null}
+        {props.celsius ? <h1 className="py-2"> {props.celsius[el]}&deg;<em>C</em></h1>:null}
           {minmaxTemp(props.temp_max[el],props.temp_min[el])}
 
         {props.humidity ? <h4>Humidity {props.humidity[el]}</h4> :null}
-        <h4 className="py-3">{props.description[el]}</h4>
+        <h4 className="py-3"><em>{props.description[el]}</em></h4>
       </Card.Body>
       
     </Card>):null}

@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("./assets/blur-background-1187974.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; 
+  
 }
 
 code {

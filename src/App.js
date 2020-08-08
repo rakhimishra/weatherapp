@@ -150,8 +150,10 @@ class App extends React.Component {
         suggestions={["Bengaluru", "Mumbai", "Delhi", "Kolkata", "Bhiwandi", "Hyderabad",
         "Ahmedabad","Pune","Surat","Jaipur","Kanpur","Lucknow","nagpur","Pune","pune","surat",
         "jaipur","Jaipur","ahmedabad","Nagpur","bengaluru","Ghaziabad","Indore","Coimbtore","kochi","patna",
-      "Patna","Khozikhode","Bhopal","Vadodara","agra","Vishakhapatanam","Varanasi","varanasi","Nashik","Vijayavada",
-      "Ludhiana","Madurai","Jabalpur","Rajkot","Dhanbad","aurangabad"]}
+        "Patna","Khozikhode","Bhopal","Vadodara","agra","Vishakhapatanam","Varanasi","varanasi","Nashik","Vijayavada",
+        "Ludhiana","Madurai","Jabalpur","Rajkot","Dhanbad","aurangabad","London","Moscow","Paris","Jabalpur",
+        "Vasai-Vihar","Allahabad","Meerut","Thiruvananthpuram","Srinagar","Asansol",
+      "Rajkot","Faridabad","Noida","Guwahati","Jalandhar","Siliguri"]}
   />
       {/* <Form loadweather= {this.getWeather}
       error={this.state.error}/> */}
